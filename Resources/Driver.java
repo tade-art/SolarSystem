@@ -26,9 +26,6 @@ public class Driver {
             mainSun.updateSun(window);
             
             //Added All Planets to the screen and orbited them
-            // earth.addAngle(0.5);
-            // earth.updatePlanet(window);
-
             for (Planets planetsSingle : planets){
                 planetsSingle.addAngle(0.5);
                 planetsSingle.updatePlanet(window);
