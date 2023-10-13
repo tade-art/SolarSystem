@@ -5,14 +5,16 @@ public class Moons {
     private String col;
     private double centreOfRotationalDistance = 0;
     private double cenreOfRotationalAngle = 0;
+    private double rotationSpeed = 0;
 
-    public Moons(double dist, double angle, double dia, String col, double centreDist, double centreAngle){
+    public Moons(double dist, double angle, double dia, String col, double centreDist, double centreAngle, double rotationSpeed){
         this.dist = dist;
         this.angle = angle;
         this.diameter = dia;
         this.col = col;
         this.centreOfRotationalDistance = centreDist;
         this.cenreOfRotationalAngle = centreAngle;
+        this.rotationSpeed = rotationSpeed;
     }
 
       //----SETTER METHODS
@@ -40,6 +42,9 @@ public class Moons {
         this.cenreOfRotationalAngle = newAngle;
     }
 
+    public void setRotatationSpeed(double newSpeed){
+        this.rotationSpeed = newSpeed;
+    }
     
     //----GETTER METHODS
     public double getDistance(){
@@ -66,13 +71,17 @@ public class Moons {
         return this.cenreOfRotationalAngle;
     }
 
-    //OTHER METHODS
-    public void addAngle(double newAngle){
-        this.angle += newAngle;
+    public double getRotationSpeed() {
+        return rotationSpeed;
     }
 
-    public void addCentreAngle(double newAngle){
-        this.cenreOfRotationalAngle += newAngle;
+    //OTHER METHODS
+    public void rotate(){
+        this.angle += this.rotationSpeed;
+    }
+
+    public void rotateAround(Planets planet){
+        this.cenreOfRotationalAngle += planet.getRotationSpeed();
     }
 
     public void updateMoon(SolarSystem SS){
