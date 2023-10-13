@@ -6,8 +6,9 @@ public class Moons {
     private double centreOfRotationalDistance = 0;
     private double cenreOfRotationalAngle = 0;
     private double rotationSpeed = 0;
+    private Planets fatherPlanet = null;
 
-    public Moons(double dist, double angle, double dia, String col, double centreDist, double centreAngle, double rotationSpeed){
+    public Moons(double dist, double angle, double dia, String col, double centreDist, double centreAngle, double rotationSpeed, Planets father){
         this.dist = dist;
         this.angle = angle;
         this.diameter = dia;
@@ -15,6 +16,7 @@ public class Moons {
         this.centreOfRotationalDistance = centreDist;
         this.cenreOfRotationalAngle = centreAngle;
         this.rotationSpeed = rotationSpeed;
+        this.fatherPlanet = father;
     }
 
       //----SETTER METHODS
@@ -73,6 +75,10 @@ public class Moons {
 
     public double getRotationSpeed() {
         return rotationSpeed;
+    }
+
+    public Planets getFatherPlanet(){
+        return this.fatherPlanet;
     }
 
     //OTHER METHODS
