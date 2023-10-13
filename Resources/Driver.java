@@ -8,16 +8,16 @@ public class Driver {
         Sun mainSun = new Sun(25, 0, 150, "YELLOW");
         
         //Planets are added. but need to make them look nice and whatnot and add moons
-        Planets earth = new Planets(199, 0, 30, "BLUE", 0, 0);
-        Planets mercury = new Planets(139, 40, 25, "GREY", 0, 0);
-        Planets venus = new Planets(164, 80, 15, "#a29416", 0, 0);
-        Planets mars = new Planets(211, 120, 10, "RED", 0, 0);
-        Planets jupiter = new Planets(230, 160, 75, "ORANGE", 0, 0);
-        Planets saturn = new Planets(264, 200, 65, "#a28316", 0, 0);
-        Planets uranus = new Planets(300, 240, 50, "#168aa2", 0, 0);
-        Planets neptune = new Planets(276, 280, 45, "BLUE", 0, 0);
+        Planets earth = new Planets(150, 0, 30, "BLUE", 0, 0,0.5);
+        Planets mercury = new Planets(150, 60, 25, "GREY", 0, 0,1);
+        Planets venus = new Planets(200, 80, 15, "#a29416", 0, 0,0.3);
+        Planets mars = new Planets(200, 130, 10, "RED", 0, 0,0.8);
+        Planets jupiter = new Planets(250, 160, 75, "ORANGE", 0, 0,1.2);
+        Planets saturn = new Planets(300, 200, 65, "#a28316", 0, 0,1.4);
+        Planets uranus = new Planets(350, 240, 50, "#168aa2", 0, 0,1.6);
+        Planets neptune = new Planets(400, 280, 45, "BLUE", 0, 0,0.2);
 
-        Moons earthMoon = new Moons(50, 0, 5, "GREY",earth.getDistance(),earth.getAngle());
+        Moons earthMoon = new Moons(25, 0, 5, "GREY",earth.getDistance(),earth.getAngle());
 
         Planets planets[] = new Planets[] {mercury, venus, earth, mars, jupiter, saturn, uranus, neptune};
         
@@ -27,7 +27,7 @@ public class Driver {
             
             //Added All Planets to the screen and orbited them
             for (Planets planetsSingle : planets){
-                planetsSingle.addAngle(0.5);
+                planetsSingle.rotate();
                 planetsSingle.updatePlanet(window);
             }
 

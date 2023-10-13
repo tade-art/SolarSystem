@@ -6,14 +6,16 @@ public class Planets {
     private String col;
     private double centreOfRotationalDistance = 0;
     private double cenreOfRotationalAngle = 0;
+    private double rotationSpeed = 0;
     
-    public Planets(double dist, double angle, double dia, String col, double centreDist, double centreAngle){
+    public Planets(double dist, double angle, double dia, String col, double centreDist, double centreAngle,double rotationSpeed){
         this.dist = dist;
         this.angle = angle;
         this.diameter = dia;
         this.col = col;
         this.centreOfRotationalDistance = centreDist;
         this.cenreOfRotationalAngle = centreAngle;
+        this.rotationSpeed = rotationSpeed;
     }
 
     //----SETTER METHODS
@@ -39,6 +41,10 @@ public class Planets {
 
     public void setCentreAngle(Double newAngle){
         this.cenreOfRotationalAngle = newAngle;
+    }
+
+    public void setRotatationSpeed(Double newSp){
+        this.rotationSpeed = newSp;
     }
 
     
@@ -67,9 +73,13 @@ public class Planets {
         return this.cenreOfRotationalAngle;
     }
 
+    public double getRotationSpeed() {
+        return rotationSpeed;
+    }
+
     //OTHER METHODS
-    public void addAngle(double newAngle){
-        this.angle += newAngle;
+    public void rotate(){
+        this.angle += this.rotationSpeed;
     }
 
     public void updatePlanet(SolarSystem SS){
