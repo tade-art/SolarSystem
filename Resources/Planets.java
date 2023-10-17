@@ -3,7 +3,6 @@
  * @author Tadas Ivanauskas
  */
 public class Planets extends Sun {
-    
     private double centreOfRotationalDistance = 0;
     private double cenreOfRotationalAngle = 0;
     private double rotationSpeed = 0;
