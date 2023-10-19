@@ -5,7 +5,7 @@ This is a part of the Java portfolio of Year 2
 
 # Controls
 
-The user has access to change the rotation speed of the planets and accelerate time (only once): 
+The user has access to change the rotation speed of the planets and accelerate time: 
 
 + To accelerate time by a factor 2, press: **UP**
 + To decelerate time by a factor 2, press: **DOWN**

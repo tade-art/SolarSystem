@@ -1,16 +1,16 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.KeyAdapter;
 
 /**
  * This class manipulates all the other java files in the folder to simulate a simple model of the Solar System
  * This is a part of the Portfolio required for Year 2
  * @author Tadas Ivanauskas
  */
-public class Driver {   
+public class Driver extends KeyAdapter {   
     public static void main(String[] args) {
         SolarSystem window = new SolarSystem(1000, 1000);
-
         Sun mainSun = new Sun(0, 0, 60, "YELLOW");
+        Sun outerSun = new Sun(0, 0, 70, "RED");
+
         
         Planets earth = new Planets(mainSun.getDiameter() + 90, 33, 15, "BLUE", 0, 0,0.95);
         Planets mercury = new Planets(mainSun.getDiameter(), 95, 10, "GREY", 0, 0,0.8);
@@ -40,52 +40,11 @@ public class Driver {
         Planets planets[] = new Planets[] {mercury, venus, earth, mars, jupiter, saturn, uranus, neptune};
         Moons moons[]=new Moons[] {earthMoon, phobos, deimos, io, europa, amalthea, titan, enceladus, mimas, titania, oberon, cupid, triton, despina, nereid};
 
-        
-        //Come back and revise this, definetely a better solution out there
-        window.addKeyListener(new KeyListener()
-        {
-            int flag = 0;
-            @Override
-            public void keyPressed(KeyEvent e) {
-                    
-                if(e.getKeyCode() == KeyEvent.VK_UP && flag <1){
-                    for (Planets allPlanets : planets){
-                        allPlanets.setRotatationSpeed(allPlanets.getRotationSpeed() * 2);
-                    }
-                    for(Moons allMoons : moons){
-                        allMoons.setRotatationSpeed(allMoons.getRotationSpeed() * 2);
-                    }
-                                    
-                    flag++;
-                }
-                   
-                    
-                if(e.getKeyCode() == KeyEvent.VK_DOWN && flag > -1){
-                    for (Planets allPlanets : planets){
-                        allPlanets.setRotatationSpeed(allPlanets.getRotationSpeed() / 2);
-                    }            
-                    for(Moons allMoons : moons){
-                        allMoons.setRotatationSpeed(allMoons.getRotationSpeed() / 2);
-                    }
-                    
-                    flag--;
-                }
-
-                System.out.println("curr val of flag: " + flag + "\n");
-            }
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-            }
-        }
-       );
-        
-        
+        Controls cntrls = new Controls(planets,moons);
+        window.addKeyListener(cntrls);
+           
        while (true) {   
+            outerSun.updateSun(window);
             mainSun.updateSun(window);
             
             for (Planets allPlanets : planets){
