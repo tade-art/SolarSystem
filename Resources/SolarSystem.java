@@ -10,11 +10,15 @@ import java.util.*;
  */
 public class SolarSystem extends JFrame 
 {
+	/** Width */
 	private int width = 300;
+	/** Height */
 	private int height = 300;
-    private boolean exiting = false;
-    private Map<RenderingHints.Key, Object> renderingHints;
-
+    /** Flag */
+	private boolean exiting = false;
+    /** Map */
+	private Map<RenderingHints.Key, Object> renderingHints;
+	/** List */
 	private ArrayList<SolarObject> things = new ArrayList<SolarObject>();
 
 	/**
