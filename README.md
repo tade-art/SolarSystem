@@ -20,3 +20,5 @@ This repository contains the following files for the model of the Solar System p
 + Moons.java
 + Sun.java
 + SolarSystem.java
++ Controls.java
++ Asteroids.java
